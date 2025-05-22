@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丫丫和乐乐的中英之约</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #ff69b4;
+            animation: fadeIn 2s;
+        }
+        .time {
+            font-size: 2em;
+            margin: 20px 0;
+            animation: slideIn 1s;
+        }
+        .heart, .flower {
+            font-size: 3em;
+            animation: bounce 1s infinite;
+        }
+        .heart {
+            color: red;
+        }
+        .flower {
+            color: #ffa07a;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <h1>丫丫和乐乐的中英之约</h1>
+    <div class="heart">❤️</div>
+    <div class="flower">🌸</div>
+    <div class="time" id="chinaTime"></div>
+    <div class="time" id="ukTime"></div>
+
+    <script>
+        function updateTime() {
+            const chinaTime = new Date().toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" });
+            const ukTime = new Date().toLocaleString("en-GB", { timeZone: "Europe/London" });
+
+            document.getElementById("chinaTime").innerText = "中国时间: " + chinaTime;
+            document.getElementById("ukTime").innerText = "英国时间: " + ukTime;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime(); // 初始化显示
+    </script>
+</body>
+</html>
